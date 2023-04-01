@@ -209,14 +209,13 @@ void setup() {
   delay(10);
 }
  
-void loop(){ 
-  // Handle for incoming SNMP requests
+void loop() { 
   Agentuino.listen();                                      
 
-  if(millis()-prevMillis>2000) {  
-    humidity = dht.readHumidity();
+  if (millis() - prevMillis > 2000) {
     temperature = dht.readTemperature();
     current = deltaCurrent();
+    humidity = dht.readHumidity();
     prevMillis = millis();
   }  
 }
